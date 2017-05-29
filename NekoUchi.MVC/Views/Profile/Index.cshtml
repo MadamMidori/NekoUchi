@@ -1,0 +1,37 @@
+﻿@model NekoUchi.MVC.Model.ProfileView
+@{
+    ViewData["Title"] = "Profil";
+}
+
+<h2>Profil</h2>
+
+<div>
+    <div>
+        Dobrodošli, @Html.DisplayFor(model => model.Email)
+    </div>
+    <div>
+        Datum registracije: @Html.DisplayFor(model => model.RegistrationDate)
+    </div>       
+</div>
+
+<br />
+
+<div>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#subscribed">Upisani tečajevi</a></li>
+        <li><a data-toggle="tab" href="#own">Moji tečajevi</a></li>
+        <li><a data-toggle="tab" href="#stats">Statistika</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="subscribed" class="tab-pane active">
+            @Html.Partial("SubscribedCourses", Model.SubscribedCourses)
+        </div>
+        <div id="own" class="tab-pane">
+            @Html.Partial("MyCourses", Model.MyCourses)
+        </div>
+        <div id="stats" class="tab-pane">
+            @Html.Partial("UserStats", Model.Statistics)
+        </div>
+    </div>
+</div>

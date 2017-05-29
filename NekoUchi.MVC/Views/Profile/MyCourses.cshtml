@@ -1,0 +1,40 @@
+@model IEnumerable<NekoUchi.MVC.Model.MyCourseView>
+
+@{
+    ViewData["Title"] = "Moji teèajevi";
+}
+
+<h2>Moji teèajevi</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Ime teèaja
+        </th>
+        <th>
+            Opis
+        </th>
+        <th>
+            Broj pretplaæenih
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfSubscribers)
+            </td>
+            <td>
+                Uredi
+            </td>
+        </tr>
+     }
+</table>
