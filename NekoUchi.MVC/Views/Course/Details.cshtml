@@ -1,0 +1,57 @@
+﻿@model NekoUchi.MVC.Model.CourseView
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Tečaj</h2>
+
+<div>
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <label asp-for="CourseName" class="col-md-2"></label>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.CourseName)
+            </div>            
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="col-md-2"></label>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Description)
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Author" class="col-md-2"></label>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Author)
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#lessons">Lekcije</a></li>
+        <li><a data-toggle="tab" href="#subscribed">Pretplaćeni</a></li>
+        <li><a data-toggle="tab" href="#stats">Statistika</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="lessons" class="tab-pane active">
+            @Html.Partial("Lessons", Model.Lessons)
+        </div>
+        <div id="subscribed" class="tab-pane">
+            @Html.Partial("Subscribed", Model.Subscribed)
+        </div>
+        <div id="stats" class="tab-pane">
+            @Html.Partial("CourseStats", Model.Statistics)
+        </div>
+    </div>
+</div>
+    
+
+<div>
+    <a asp-action="Index" asp-route-token="@ViewData["token"]">Natrag</a>
+</div>
+

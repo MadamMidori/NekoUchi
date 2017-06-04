@@ -34,9 +34,29 @@ namespace NekoUchi.MVC.Controllers
             }
             ViewData["token"] = token;
             var course = Course.GetCourse(id);
+
             // cast to Subscribed
+            CourseView courseView = CourseView.CastFromCourseModel(course.ModelCourse);
+
             // return the subscribed one!
-            return View();
+            return View(courseView);
+        }
+
+        [HttpPost]
+        public void Subscribe(string identification)
+        {
+            string[] identificationParts = identification.Split('+');
+            string id = identificationParts[0];
+            string token = identificationParts[1];
+            string username = AuthLogic.CheckToken(token);
+            if (username == "")
+            {
+                throw new Exception("NotAuthorized");
+            }
+            ViewData["token"] = token;
+
+            // subscribe the user to the course
+            
         }
 
         // GET: Course/Create

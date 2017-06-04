@@ -9,7 +9,5 @@ namespace NekoUchi.DAL
     public class Course : Model.Course, ISerializationHelper
     {
         public ObjectId _id { get; set; }
-
-        public new string Identification { get => _id.ToString(); }
     }
 }

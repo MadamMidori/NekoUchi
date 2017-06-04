@@ -25,7 +25,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Profil</a></li>
+                    @{
+                        if (ViewData.Keys.Contains("token"))
+                        {
+                            <li><a asp-area="" asp-controller="Profile" asp-action="Index">Profil</a></li>
+                        }
+                    }                    
                     <li><a asp-area="" asp-controller="Word" asp-action="Index">Riječi</a></li>
                     @{
                         if (ViewData.Keys.Contains("token"))
@@ -43,7 +48,7 @@
                         else
                         {
                             <li><a asp-area="" asp-controller="Home" asp-action="Register">Registracija</a></li>
-                            <li><a asp-area="" asp-controller="Home" asp-action="Login">Prijava</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Login">Prijava</a></li>                            
                         }
                     }                    
                 </ul>

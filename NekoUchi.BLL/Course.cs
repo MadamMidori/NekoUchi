@@ -25,7 +25,7 @@ namespace NekoUchi.BLL
                 course.ModelCourses = new List<Model.Course>();
                 foreach (var enumerableCourse in enumerableCourses)
                 {
-                    course.ModelCourse.Identification = enumerableCourse.Identification;
+                    enumerableCourse.Identification = enumerableCourse._id.ToString();
                     course.ModelCourses.Add(enumerableCourse);
                 }
                 return course;
@@ -46,7 +46,7 @@ namespace NekoUchi.BLL
                 course.ModelCourses = new List<Model.Course>();
                 foreach (var enumerableCourse in enumerableCourses)
                 {
-                    course.ModelCourse.Identification = enumerableCourse.Identification;
+                    enumerableCourse.Identification = enumerableCourse._id.ToString();
                     course.ModelCourses.Add(enumerableCourse);
                 }
                 return course;
@@ -67,7 +67,7 @@ namespace NekoUchi.BLL
                 course.ModelCourses = new List<Model.Course>();
                 foreach (var enumerableCourse in enumerableCourses)
                 {
-                    course.ModelCourse.Identification = enumerableCourse.Identification;
+                    enumerableCourse.Identification = enumerableCourse._id.ToString();
                     course.ModelCourses.Add(enumerableCourse);
                 }
                 return course;
@@ -90,6 +90,19 @@ namespace NekoUchi.BLL
             catch (Exception)
             {
                 return null;
+            }
+        }
+
+        public static bool SubscribeUserToCourse(string userMail, string courseId)
+        {
+            try
+            {
+                IDataProvider data = new MongoDataProvider();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
 

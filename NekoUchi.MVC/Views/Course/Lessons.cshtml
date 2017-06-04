@@ -1,0 +1,36 @@
+﻿@model IEnumerable<NekoUchi.MVC.Model.GridLessonView>
+
+@{
+    ViewData["Title"] = "Lekcije";
+}
+
+<h3>Lekcije</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            Ime
+        </th>
+        <th>
+            Opis
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>            
+            <td>
+                <a asp-area="" asp-controller="Lesson" asp-action="Details" asp-route-id="@item.Identification" asp-route-token="@ViewData["token"]">@Html.DisplayFor(modelItem => item.Name)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                Uredi
+            </td>
+        </tr>
+    }
+</table>
+
+

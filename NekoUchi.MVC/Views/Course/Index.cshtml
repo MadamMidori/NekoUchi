@@ -1,15 +1,15 @@
-@model IEnumerable<NekoUchi.MVC.Model.SubscribedCourseView>
+ï»¿@model IEnumerable<NekoUchi.MVC.Model.SubscribedCourseView>
 
 @{
-    ViewData["Title"] = "Teèajevi";
+    ViewData["Title"] = "TeÄajevi";
 }
 
-<h2>Teèajevi</h2>
+<h2>TeÄajevi</h2>
 
 <table class="table">
 <tr>
     <th>
-        Ime teèaja
+        Ime teÄaja
     </th>
     <th>
         Ime autora
@@ -24,7 +24,7 @@
 {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CourseName)
+            <a asp-area="" asp-controller="Course" asp-action="Details" asp-route-id="@item.Identification" asp-route-token="@ViewData["token"]">@Html.DisplayFor(modelItem => item.CourseName)</a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CourseAuthor)
@@ -33,7 +33,7 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            Pretplati se
+            <a asp-area="" asp-controller="Course" asp-action="Subscribe" asp-route-id="@item.Identification" asp-route-token="@ViewData["token"]">Pretplati se</a>
         </td>
     </tr>
 }

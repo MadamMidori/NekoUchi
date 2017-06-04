@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using NekoUchi.DAL.Helpers;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,16 @@ namespace NekoUchi.DAL
             {
                 var db = GetLocalDatabase(Constants.Database);
                 var collection = db.GetCollection<T>(typeof(T).Name);
-                FilterDefinition<T> filter = Builders<T>.Filter.Eq(field, value);      
+                FilterDefinition<T> filter = Builders<T>.Filter.Eq(field, value);
+                if (field == "_id")
+                {
+                    ObjectId objId = new ObjectId(value);
+                    filter = Builders<T>.Filter.Eq(field, objId);
+                }
+                else
+                {
+                    filter = Builders<T>.Filter.Eq(field, value);
+                }                    
                 var result = collection.Find(filter).FirstOrDefault();
                 return result;
             }
@@ -97,7 +107,7 @@ namespace NekoUchi.DAL
                 UpdateDefinition<T> update = null;
                 foreach (var fieldToChange in changes.Keys)
                 {
-                    update = Builders<T>.Update.Set(fieldToChange, changes[fieldToChange]);
+                    update = Builders<T>.Update.Set(fieldToChange, changes[fieldToChange]);                    
                 }
                 FilterDefinition<T> filter = Builders<T>.Filter.Eq(field, value);
                 return collection.UpdateOne(filter, update).IsAcknowledged;

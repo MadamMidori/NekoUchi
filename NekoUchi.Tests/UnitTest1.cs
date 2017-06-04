@@ -13,6 +13,28 @@ namespace NekoUchi.Tests
     public class UnitTest1
     {
         [TestMethod]
+        public void SubscribeUserToCourse()
+        {
+            string email = "yetione.snowboard@yahoo.com";
+            string courseID = "59148b099284641eacffcc7f";
+
+            IDataProvider data = new MongoDataProvider();
+
+        }
+
+        [TestMethod]
+        public void GetUsersCourses()
+        {
+            string email = "iandri25@hotmail.com";
+            IDataProvider data = new MongoDataProvider();
+            var course = BLL.Course.GetUsersCourses(email);
+            foreach (var enumCourse in course.ModelCourses)
+            {
+                Assert.AreEqual(enumCourse.Author, email);
+            }
+        }
+
+        [TestMethod]
         public void GetAllCourses()
         {
             IDataProvider data = new MongoDataProvider();
