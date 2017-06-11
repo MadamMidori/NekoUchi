@@ -6,6 +6,8 @@ using NekoUchi.BLL.Helpers;
 using System.Text;
 using System.Security.Cryptography;
 using System.Collections.Generic;
+using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace NekoUchi.Tests
 {
@@ -17,9 +19,17 @@ namespace NekoUchi.Tests
         {
             string email = "yetione.snowboard@yahoo.com";
             string courseID = "59148b099284641eacffcc7f";
+            ObjectId id = new ObjectId(courseID);
 
-            IDataProvider data = new MongoDataProvider();
+            var settings = new MongoClientSettings();
+            settings.Server = new MongoServerAddress("localhost", 27017);
+            IMongoClient _client = new MongoClient(settings);
+            var db = _client.GetDatabase("NekoUchiDev");
+            var collection = db.GetCollection<Course>("Course");
 
+            var filter = Builders<Course>.Filter.Where(x => x._id == id);
+            var update = Builders<Course>.Update.AddToSet(x => x.Subscribed, email);
+            var result = collection.UpdateOneAsync(filter, update).Result;            
         }
 
         [TestMethod]
