@@ -9,6 +9,8 @@ namespace NekoUchi.DAL
 {
     public class MongoDataProvider : IDataProvider
     {
+        private IMongoDatabase _db = GetRemoteDatabase();
+
         public static IMongoDatabase GetLocalDatabase(string dbName)
         {
             var settings = new MongoClientSettings();
@@ -17,12 +19,22 @@ namespace NekoUchi.DAL
             return _client.GetDatabase(dbName);
         }
 
+        public static IMongoDatabase GetRemoteDatabase()
+        {            
+            var settings = new MongoClientSettings();
+            settings.Server = new MongoServerAddress(Constants.RemoteServer, Constants.RemoteIP);
+            var credential = MongoCredential.CreateCredential(Constants.RemoteDB, Constants.username, Constants.password);
+            settings.Credentials = new[] { credential };
+
+            IMongoClient _client = new MongoClient(settings);
+            return _client.GetDatabase("nekouchidev");
+        }
+
         public T Get<T>(string field, string value)
         {
             try
             {
-                var db = GetLocalDatabase(Constants.Database);
-                var collection = db.GetCollection<T>(typeof(T).Name);
+                var collection = _db.GetCollection<T>(typeof(T).Name);
                 FilterDefinition<T> filter = Builders<T>.Filter.Eq(field, value);
                 if (field == "_id")
                 {
@@ -32,7 +44,7 @@ namespace NekoUchi.DAL
                 else
                 {
                     filter = Builders<T>.Filter.Eq(field, value);
-                }                    
+                }
                 var result = collection.Find(filter).FirstOrDefault();
                 return result;
             }
@@ -46,8 +58,7 @@ namespace NekoUchi.DAL
         {
             try
             {
-                var db = GetLocalDatabase(Constants.Database);
-                var collection = db.GetCollection<T>(typeof(T).Name);
+                var collection = _db.GetCollection<T>(typeof(T).Name);
                 FilterDefinition<T> filter = null;
                 if (field == "")
                 {
@@ -70,8 +81,7 @@ namespace NekoUchi.DAL
         {
             try
             {
-                var db = GetLocalDatabase(Constants.Database);
-                var collection = db.GetCollection<T>(typeof(T).Name);
+                var collection = _db.GetCollection<T>(typeof(T).Name);
                 FilterDefinition<T> filter = Builders<T>.Filter.AnyEq(field, value);
                 var result = collection.Find(filter).ToList();
                 return result;
@@ -86,8 +96,7 @@ namespace NekoUchi.DAL
         {
             try
             {
-                var db = GetLocalDatabase(Constants.Database);
-                var collection = db.GetCollection<T>(typeof(T).Name);
+                var collection = _db.GetCollection<T>(typeof(T).Name);
                 collection.InsertOne(item);
                 return true;
             }
@@ -101,13 +110,11 @@ namespace NekoUchi.DAL
         {
             try
             {
-                
-                var db = GetLocalDatabase(Constants.Database);
-                var collection = db.GetCollection<T>(typeof(T).Name);
+                var collection = _db.GetCollection<T>(typeof(T).Name);
                 UpdateDefinition<T> update = null;
                 foreach (var fieldToChange in changes.Keys)
                 {
-                    update = Builders<T>.Update.Set(fieldToChange, changes[fieldToChange]);                    
+                    update = Builders<T>.Update.Set(fieldToChange, changes[fieldToChange]);
                 }
                 FilterDefinition<T> filter = Builders<T>.Filter.Eq(field, value);
                 return collection.UpdateOne(filter, update).IsAcknowledged;
@@ -118,12 +125,11 @@ namespace NekoUchi.DAL
             }
         }
 
-        public bool Delete<T> (string field, string value)
+        public bool Delete<T>(string field, string value)
         {
             try
             {
-                var db = GetLocalDatabase(Constants.Database);
-                var collection = db.GetCollection<T>(typeof(T).Name);
+                var collection = _db.GetCollection<T>(typeof(T).Name);
                 FilterDefinition<T> filter = Builders<T>.Filter.Eq(field, value);
                 return collection.DeleteOne(filter).IsAcknowledged;
             }
@@ -131,6 +137,6 @@ namespace NekoUchi.DAL
             {
                 return false;
             }
-        }        
+        }
     }
 }
