@@ -7,3 +7,12 @@ C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.DAL\obj\Debug\netcoreapp1.1\
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.DAL\obj\Debug\netcoreapp1.1\NekoUchi.DAL.AssemblyInfo.cs
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.DAL\obj\Debug\netcoreapp1.1\NekoUchi.DAL.dll
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.DAL\obj\Debug\netcoreapp1.1\NekoUchi.DAL.pdb
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.DAL\bin\Debug\netcoreapp1.1\NekoUchi.DAL.deps.json
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.DAL\bin\Debug\netcoreapp1.1\NekoUchi.DAL.dll
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.DAL\bin\Debug\netcoreapp1.1\NekoUchi.DAL.pdb
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.DAL\bin\Debug\netcoreapp1.1\NekoUchi.Model.dll
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.DAL\bin\Debug\netcoreapp1.1\NekoUchi.Model.pdb
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.DAL\obj\Debug\netcoreapp1.1\NekoUchi.DAL.csprojResolveAssemblyReference.cache
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.DAL\obj\Debug\netcoreapp1.1\NekoUchi.DAL.AssemblyInfo.cs
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.DAL\obj\Debug\netcoreapp1.1\NekoUchi.DAL.dll
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.DAL\obj\Debug\netcoreapp1.1\NekoUchi.DAL.pdb

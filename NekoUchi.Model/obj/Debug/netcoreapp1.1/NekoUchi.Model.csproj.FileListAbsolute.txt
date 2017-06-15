@@ -5,3 +5,10 @@ C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\obj\Debug\netcoreapp1.
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.AssemblyInfo.cs
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.dll
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.pdb
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.Model\bin\Debug\netcoreapp1.1\NekoUchi.Model.deps.json
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.Model\bin\Debug\netcoreapp1.1\NekoUchi.Model.dll
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.Model\bin\Debug\netcoreapp1.1\NekoUchi.Model.pdb
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.csprojResolveAssemblyReference.cache
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.AssemblyInfo.cs
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.dll
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.pdb

@@ -7042,10 +7042,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi.Model\\NekoUchi.Model.csproj",
+      "projectUniqueName": "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi\\NekoUchi.Model\\NekoUchi.Model.csproj",
       "projectName": "NekoUchi.Model",
-      "projectPath": "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi.Model\\NekoUchi.Model.csproj",
-      "outputPath": "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi.Model\\obj\\",
+      "projectPath": "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi\\NekoUchi.Model\\NekoUchi.Model.csproj",
+      "outputPath": "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi\\NekoUchi.Model\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"

@@ -7387,10 +7387,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi.DAL\\NekoUchi.DAL.csproj",
+      "projectUniqueName": "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi\\NekoUchi.DAL\\NekoUchi.DAL.csproj",
       "projectName": "NekoUchi.DAL",
-      "projectPath": "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi.DAL\\NekoUchi.DAL.csproj",
-      "outputPath": "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi.DAL\\obj\\",
+      "projectPath": "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi\\NekoUchi.DAL\\NekoUchi.DAL.csproj",
+      "outputPath": "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi\\NekoUchi.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -7398,8 +7398,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi.Model\\NekoUchi.Model.csproj": {
-              "projectPath": "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi.Model\\NekoUchi.Model.csproj"
+            "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi\\NekoUchi.Model\\NekoUchi.Model.csproj": {
+              "projectPath": "C:\\Privatno\\Diplomski rad\\Source\\NekoUchi2\\NekoUchi\\NekoUchi.Model\\NekoUchi.Model.csproj"
             }
           }
         }
