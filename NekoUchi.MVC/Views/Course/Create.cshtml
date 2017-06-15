@@ -1,0 +1,39 @@
+﻿@model NekoUchi.MVC.Model.NewCourseView
+
+@{
+    ViewData["Title"] = "Novi tečaj";
+}
+
+<h2>Novi tečaj</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="CourseName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CourseName" class="form-control" />
+                <span asp-validation-for="CourseName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <input type="hidden" name="token" value="@ViewData["token"]" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Dodaj" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index" asp-controller="Profile" asp-route-token="@ViewData["token"]">Natrag na profil</a>
+</div>
+

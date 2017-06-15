@@ -11,7 +11,7 @@ namespace NekoUchi.BLL
         public Model.Course ModelCourse { get; set; }
         public List<Model.Course> ModelCourses { get; set; }
 
-        private IDataProvider data = new MongoDataProvider();
+        private IDataProvider _data = new MongoDataProvider();
         #endregion
 
         #region Static methods
@@ -97,8 +97,16 @@ namespace NekoUchi.BLL
         {
             try
             {
+                var course = new Course();
                 IDataProvider data = new MongoDataProvider();
-                return true;
+                course.ModelCourse = data.Get<DAL.Course>("_id", courseId);
+
+                // Obrati pozornost na to da ne želiš da ti se korisnik može subscribeat 2x
+                if (course.ModelCourse.Subscribed.Contains(userMail))
+                {
+                    return true;
+                }
+                return DAL.Course.SubscribeUser(userMail, courseId);
             }
             catch (Exception)
             {
@@ -106,7 +114,47 @@ namespace NekoUchi.BLL
             }
         }
 
-        #endregion
+        public static bool UnsubscribeUserFromCourse(string userMail, string courseId)
+        {
+            try
+            {
+                var course = new Course();
+                IDataProvider data = new MongoDataProvider();
+                course.ModelCourse = data.Get<DAL.Course>("_id", courseId);
+
+                // Ne bi trebao biti slučaj, ali ako korisnik nije subscribean onda je sve ok
+                if (!course.ModelCourse.Subscribed.Contains(userMail))
+                {
+                    return true;
+                }
+                return DAL.Course.UnsubscribeUser(userMail, courseId);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public static string CreateCourse(string name, string description, string author)
+        {
+            try
+            {
+                var dalCourse = new DAL.Course();
+                dalCourse.Author = author;
+                dalCourse.Description = description;
+                dalCourse.Lessons = new List<Model.Lesson>();
+                dalCourse.Name = name;
+                dalCourse.Statistics = new Model.CourseStatistics();
+                dalCourse.Subscribed = new List<string>();
+                
+                return DAL.Course.CreateCourse(dalCourse);
+            }
+            catch(Exception)
+            {
+                return null;
+            }
+        }
+        #endregion        
     }
 
     public class Lesson

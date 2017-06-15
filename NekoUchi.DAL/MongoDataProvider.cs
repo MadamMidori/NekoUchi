@@ -9,9 +9,21 @@ namespace NekoUchi.DAL
 {
     public class MongoDataProvider : IDataProvider
     {
-        private IMongoDatabase _db = GetRemoteDatabase();
+        private IMongoDatabase _db;
 
-        public static IMongoDatabase GetLocalDatabase(string dbName)
+        public MongoDataProvider(bool isLocal = true)
+        {
+            if (isLocal)
+            {
+                _db = GetLocalDatabase("NekoUchiDev");
+            }
+            else
+            {
+                _db = GetRemoteDatabase();
+            }
+        }       
+
+        private IMongoDatabase GetLocalDatabase(string dbName)
         {
             var settings = new MongoClientSettings();
             settings.Server = new MongoServerAddress("localhost", 27017);
@@ -19,7 +31,7 @@ namespace NekoUchi.DAL
             return _client.GetDatabase(dbName);
         }
 
-        public static IMongoDatabase GetRemoteDatabase()
+        private IMongoDatabase GetRemoteDatabase()
         {            
             var settings = new MongoClientSettings();
             settings.Server = new MongoServerAddress(Constants.RemoteServer, Constants.RemoteIP);
@@ -28,6 +40,11 @@ namespace NekoUchi.DAL
 
             IMongoClient _client = new MongoClient(settings);
             return _client.GetDatabase("nekouchidev");
+        }
+
+        public IMongoDatabase GetDatabase()
+        {
+            return _db;
         }
 
         public T Get<T>(string field, string value)
@@ -92,17 +109,17 @@ namespace NekoUchi.DAL
             }
         }
 
-        public bool Create<T>(T item)
+        public T Create<T>(T item)
         {
             try
             {
                 var collection = _db.GetCollection<T>(typeof(T).Name);
                 collection.InsertOne(item);
-                return true;
+                return item;
             }
             catch (Exception)
             {
-                return false;
+                return default(T);
             }
         }
 

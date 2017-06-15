@@ -46,6 +46,19 @@ namespace NekoUchi.MVC.Model
         #endregion
     }
 
+    public class NewCourseView
+    {
+        #region Properties
+        [Display(Name = "Ime")]
+        public string CourseName { get; set; }
+
+        [Display(Name = "Opis")]
+        [DataType(DataType.MultilineText)]
+        public string Description { get; set; }
+
+        #endregion
+    }
+
     public class CourseStatisticsView
     {
         #region Properties

@@ -14,6 +14,24 @@ namespace NekoUchi.Tests
     [TestClass]
     public class UnitTest1
     {
+        [TestMethod]
+        public void CreateCourse()
+        {
+            var dalCourse = new DAL.Course();
+            dalCourse.Author = "yetione.snowboard@yahoo.com";
+            dalCourse.Description = "Lorem ipsum dolor sit amet";
+            dalCourse.Lessons = new List<Model.Lesson>();
+            dalCourse.Name = "Hello world!";
+            dalCourse.Statistics = new Model.CourseStatistics();
+            dalCourse.Subscribed = new List<string>();
+            
+            IDataProvider data = new MongoDataProvider();
+            dalCourse = data.Create(dalCourse);
+            dalCourse.Identification = dalCourse._id.ToString();
+
+            var modelCourse = new Model.Course();
+            modelCourse = dalCourse;
+        }
 
         [TestMethod]
         public void SubscribeUserToCourse()
@@ -30,7 +48,8 @@ namespace NekoUchi.Tests
 
             var filter = Builders<Course>.Filter.Where(x => x._id == id);
             var update = Builders<Course>.Update.AddToSet(x => x.Subscribed, email);
-            var result = collection.UpdateOneAsync(filter, update).Result;            
+            var result = collection.UpdateOne(filter, update);
+            //var result = collection.UpdateOneAsync(filter, update).Result;            
         }
 
         [TestMethod]

@@ -27,7 +27,7 @@ namespace NekoUchi.BLL
                 user.ModelUser.RegistrationDate = DateTime.Now;
                 user.ModelUser.Role = Constants.Roles.User;
                 IDataProvider data = new MongoDataProvider();
-                if (!data.Create(user.ModelUser))
+                if (data.Create(user.ModelUser) == null)
                 {
                     throw new Exception();
                 }
@@ -40,7 +40,7 @@ namespace NekoUchi.BLL
             // Get a session token
             string sessionToken = GetToken(user.ModelUser.Email);
 
-            //// if everything passed well
+            // if everything passed well
             return sessionToken;
         }
 

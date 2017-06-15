@@ -18,7 +18,8 @@ namespace NekoUchi.DAL
         {
             try
             {
-                var db = MongoDataProvider.GetRemoteDatabase();
+                var dataProvider = new MongoDataProvider();
+                var db = dataProvider.GetDatabase();
                 var collection = db.GetCollection<Session>("Session");
                 _id = ObjectId.GenerateNewId();             
                 Id = _id.ToString();

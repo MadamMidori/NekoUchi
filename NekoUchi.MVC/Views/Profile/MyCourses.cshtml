@@ -6,35 +6,41 @@
 
 <h3>Moji tečajevi</h3>
 
-<table class="table">
-    <tr>
-        <th>
-            Ime tečaja
-        </th>
-        <th>
-            Opis
-        </th>
-        <th>
-            Broj pretplaćenih
-        </th>
-        <th></th>
-    </tr>
+<div>
+    <a asp-area="" asp-controller="Course" asp-action="Create" asp-route-token="@ViewData["token"]">Dodaj novi tečaj</a>
+</div>
 
-    @foreach (var item in Model)
-    {
+<div>
+    <table class="table">
         <tr>
-            <td>                
-                <a asp-area="" asp-controller="Course" asp-action="Details" asp-route-id="@item.Identification" asp-route-token="@ViewData["token"]">@Html.DisplayFor(modelItem => item.CourseName)</a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberOfSubscribers)
-            </td>
-            <td>
-                Uredi
-            </td>
+            <th>
+                Ime tečaja
+            </th>
+            <th>
+                Opis
+            </th>
+            <th>
+                Broj pretplaćenih
+            </th>
+            <th></th>
         </tr>
-     }
-</table>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="Course" asp-action="Details" asp-route-id="@item.Identification" asp-route-token="@ViewData["token"]">@Html.DisplayFor(modelItem => item.CourseName)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfSubscribers)
+                </td>
+                <td>
+                    Uredi
+                </td>
+            </tr>
+        }
+    </table>
+</div>

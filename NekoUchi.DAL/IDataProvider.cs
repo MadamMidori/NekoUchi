@@ -13,7 +13,7 @@ namespace NekoUchi.DAL
 
         IEnumerable<T> GetMultipleUsingAny<T>(string field, string value);
 
-        bool Create<T>(T item);
+        T Create<T>(T item);
 
         bool Update<T>(Dictionary<string, string> changes, string field, string value);
 

@@ -56,3 +56,68 @@ textarea {
     background-color: cadetblue;
     color: darkred;
 }
+
+.btn-default 
+{
+    color: #2c000f;
+    background-color: #Fdd0fc;
+    border-color: #Fdd0fc;
+}
+
+    .btn-default:hover 
+    {
+        background-color: #Ff68fb;
+        border-color: #Ff68fb;
+    }
+
+a 
+{
+    color: #Ff68fb;
+    text-decoration: none;
+}
+
+    a:hover 
+    {
+        color: #bc47b9;
+    }
+
+
+.nav-tabs > li > a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border-top-color: #Fdd0fc;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: #Fdd0fc;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: #Fdd0fc;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    border-radius: 4px 4px 0 0;
+}
+
+    .nav-tabs > li > a:hover {
+        background-color: transparent;
+        border-bottom-color: transparent;
+        border-top-color: #bc47b9;
+        border-right-color: #bc47b9;
+        border-left-color: #bc47b9;
+    }
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus 
+{
+    color: #2c000f;
+    cursor: default;
+    background-color: #Fdd0fc;
+    border: 1px solid #Fdd0fc;
+    border-bottom-color: transparent;
+}

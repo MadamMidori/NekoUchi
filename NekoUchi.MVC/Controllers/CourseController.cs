@@ -6,20 +6,59 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NekoUchi.MVC.Model;
 using NekoUchi.BLL;
+using Microsoft.Extensions.Primitives;
 
 namespace NekoUchi.MVC.Controllers
 {
     public class CourseController : Controller
     {
         // GET: Course
-        public ActionResult Index(string token)
+        public ActionResult Index(string token, string filter = "", bool sByName = true, bool ascending = true)
         { 
             if (AuthLogic.CheckToken(token) == "")
             {
                 throw new Exception("NotAuthorized");
             }
             ViewData["token"] = token;
+
+            // Za prvu ruku sve ide iz baze, poslije æu uzimati samo one koji odgovaraju
+            // zadanom filtru
             var allCourses = Course.GetAllCourses();
+
+            // filter
+            ViewData["filter"] = filter;
+            if (filter != null && filter != "")
+            {
+                allCourses.ModelCourses = allCourses.ModelCourses.Where(c => c.Name.Contains(filter) || c.Author.Contains(filter)).ToList();                
+            }
+
+            // sort
+            ViewData["ascending"] = ascending;
+            if (sByName)
+            {
+                if (ascending)
+                {
+                    allCourses.ModelCourses = allCourses.ModelCourses.OrderBy(c => c.Name).ToList();
+                }
+                else
+                {
+                    allCourses.ModelCourses = allCourses.ModelCourses.OrderByDescending(c => c.Name).ToList();
+                }
+            }
+            else
+            {
+                if (ascending)
+                {
+                    allCourses.ModelCourses = allCourses.ModelCourses.OrderBy(c => c.Author).ToList();
+                }
+                else
+                {
+                    allCourses.ModelCourses = allCourses.ModelCourses.OrderByDescending(c => c.Author).ToList();
+                }
+            }
+            
+            // paging
+
             var courses = new List<SubscribedCourseView>();
             courses = SubscribedCourseView.CastFromCourse(allCourses.ModelCourses);
             return View(courses);
@@ -42,10 +81,9 @@ namespace NekoUchi.MVC.Controllers
             return View(courseView);
         }
 
-        [HttpPost]
         public void Subscribe(string identification)
         {
-            string[] identificationParts = identification.Split('+');
+            string[] identificationParts = identification.Split(' ');
             string id = identificationParts[0];
             string token = identificationParts[1];
             string username = AuthLogic.CheckToken(token);
@@ -56,13 +94,41 @@ namespace NekoUchi.MVC.Controllers
             ViewData["token"] = token;
 
             // subscribe the user to the course
-            
+            if (!Course.SubscribeUserToCourse(username, id))
+            {
+                throw new Exception();
+            }           
+        }
+
+        public ActionResult Unsubscribe(string courseId, string token)
+        {
+            string username = AuthLogic.CheckToken(token);
+            if (username == "")
+            {
+                throw new Exception("NotAuthorized");
+            }
+            ViewData["token"] = token;
+
+            // unsubscribe the user from the course
+            if (!Course.UnsubscribeUserFromCourse(username, courseId))
+            {
+                throw new Exception();
+            }
+
+            return RedirectToAction("Index", "Profile", new { token = token });
         }
 
         // GET: Course/Create
-        public ActionResult Create()
+        public ActionResult Create(string token)
         {
-            return View();
+            if (AuthLogic.CheckToken(token) == "")
+            {
+                throw new Exception("NotAutorized");
+            }
+            ViewData["token"] = token;
+
+            var newCourse = new NewCourseView();
+            return View(newCourse);
         }
 
         // POST: Course/Create
@@ -72,9 +138,22 @@ namespace NekoUchi.MVC.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                var courseName = new StringValues();
+                var description = new StringValues();
+                var token = new StringValues();
+                string id = "";
+                if (collection.TryGetValue("CourseName", out courseName) && collection.TryGetValue("Description", out description) && collection.TryGetValue("token", out token))
+                {
+                    var username = AuthLogic.CheckToken(token.ToString());
+                    if (username == "")
+                    {
+                        throw new Exception("NotAuthorized");
+                    }
 
-                return RedirectToAction("Index");
+                    // save course
+                    id = Course.CreateCourse(courseName.ToString(), description.ToString(), username);
+                }
+                return RedirectToAction("Details", new { token = token, id = id });
             }
             catch
             {
