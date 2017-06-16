@@ -154,12 +154,32 @@ namespace NekoUchi.BLL
                 return null;
             }
         }
-        #endregion        
-    }
 
-    public class Lesson
-    {
-        public Model.Lesson ModelLesson { get; set; }
+        public static bool AddLessonToCourse(string courseId, Model.Lesson lesson)
+        {            
+            try
+            {
+                var course = new Course();
+                IDataProvider data = new MongoDataProvider();
+                course.ModelCourse = data.Get<DAL.Course>("_id", courseId);
+
+                // ne smiju biti 2 lekcije istog imena
+                foreach (var courseLesson in course.ModelCourse.Lessons)
+                {
+                    if (courseLesson.Name == lesson.Name)
+                    {
+                        throw new Exception("AlreadyExists");
+                    }
+                }
+
+                return DAL.Course.AddLesson(lesson, courseId);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        #endregion        
     }
 
     public class CourseStatistics

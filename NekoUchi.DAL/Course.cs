@@ -40,6 +40,34 @@ namespace NekoUchi.DAL
             }
         }
 
+        public static bool AddLesson (Model.Lesson lesson, string courseId)
+        {
+            try
+            {
+                ObjectId id = new ObjectId(courseId);
+
+                var dataProvider = new MongoDataProvider();
+                var db = dataProvider.GetDatabase();
+                var collection = db.GetCollection<Course>("Course");
+
+                var filter = Builders<Course>.Filter.Where(c => c._id == id);
+                var update = Builders<Course>.Update.AddToSet(c => c.Lessons, lesson);
+                var result = collection.UpdateOne(filter, update);
+                if (result.ModifiedCount == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public static bool UnsubscribeUser(string email, string courseId)
         {
             try

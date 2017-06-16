@@ -6,31 +6,44 @@
 
 <h3>Lekcije</h3>
 
-<table class="table">
-    <tr>
-        <th>
-            Ime
-        </th>
-        <th>
-            Opis
-        </th>
-        <th></th>
-    </tr>
+@if (ViewData["isAuthor"].Equals(true))
+{
+    <div>
+        <a asp-area="" asp-controller="Lesson" asp-action="Create" asp-route-courseId="@ViewData["courseId"]" asp-route-token="@ViewData["token"]">Dodaj novu lekciju</a>
+    </div>
+}
 
-    @foreach (var item in Model)
-    {
-        <tr>            
-            <td>
-                <a asp-area="" asp-controller="Lesson" asp-action="Details" asp-route-id="@item.Identification" asp-route-token="@ViewData["token"]">@Html.DisplayFor(modelItem => item.Name)</a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                Uredi
-            </td>
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                Ime
+            </th>
+            <th>
+                Opis
+            </th>
+            <th></th>
         </tr>
-    }
-</table>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="Lesson" asp-action="Details" asp-route-courseId="@item.CourseIdentification" asp-route-token="@ViewData["token"]" asp-route-name="@item.Name">@Html.DisplayFor(modelItem => item.Name)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                @if (ViewData["isAuthor"].Equals(true))
+                {
+                    <td>
+                        <a asp-area="" asp-controller="Lesson" asp-action="Edit" asp-route-courseId="@item.CourseIdentification" asp-route-token="@ViewData["token"]" asp-route-name="@item.Name">Uredi</a>
+                    </td>
+                }                
+            </tr>
+        }
+    </table>
+</div>
+
 
 

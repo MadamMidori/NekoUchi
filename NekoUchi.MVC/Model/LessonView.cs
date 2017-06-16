@@ -10,10 +10,30 @@ namespace NekoUchi.MVC.Model
     public class LessonView
     {
         #region Properties
+        [Display(Name = "Ime")]
+        public string Name { get; set; }
+
+        [Display(Name = "Opis")]
+        public string Description { get; set; }
+
+        public string CourseIdentification { get; set; }
+
+        public List<WordView> Words { get; set; }
 
         #endregion
 
         #region StaticMethods
+
+        public static LessonView CastFromLesson (Lesson lesson, string courseId)
+        {
+            var view = new LessonView();
+            view.Description = lesson.Description;
+            view.Name = lesson.Name;
+            view.Words = WordView.CastFromModelWord(lesson.Words);
+            view.CourseIdentification = courseId;
+            return view;
+        }
+
         #endregion
     }
 
@@ -26,7 +46,7 @@ namespace NekoUchi.MVC.Model
         [Display(Name = "Opis")]
         public string Description { get; set; }
 
-        public string Identification { get; set; }
+        public string CourseIdentification { get; set; }
         #endregion
 
         #region Static methods

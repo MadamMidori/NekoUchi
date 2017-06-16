@@ -67,7 +67,8 @@ namespace NekoUchi.MVC.Controllers
         // GET: Course/Details/5
         public ActionResult Details(string token, string id)
         {
-            if (AuthLogic.CheckToken(token) == "")
+            string username = AuthLogic.CheckToken(token);
+            if (username == "")
             {
                 throw new Exception("NotAuthorized");
             }
@@ -76,6 +77,15 @@ namespace NekoUchi.MVC.Controllers
 
             // cast to Subscribed
             CourseView courseView = CourseView.CastFromCourseModel(course.ModelCourse);
+            if (courseView.Author == username)
+            {
+                ViewData["isAuthor"] = true;
+            }
+            else
+            {
+                ViewData["isAuthor"] = false;
+            }
+            ViewData["courseId"] = id;
 
             // return the subscribed one!
             return View(courseView);

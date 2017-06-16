@@ -6,9 +6,11 @@ namespace NekoUchi.Model
 {
     public class Word
     {
+        public string Identification { get; set; }
         public string Meaning { get; set; }
         public string Kana { get; set; }
         public string Kanji { get; set; }
         public string Level { get; set; }
+        public string JishoURL { get; set; }
     }
 }

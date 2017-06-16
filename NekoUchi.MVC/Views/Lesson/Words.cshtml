@@ -1,0 +1,49 @@
+﻿@model IEnumerable<NekoUchi.MVC.Model.WordView>
+
+@{
+    ViewData["Title"] = "Riječi";
+
+}
+
+<h2>Riječi</h2>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                Značenje
+            </th>
+            <th>
+                Kana
+            </th>
+            <th>
+                Kanji
+            </th>
+            <th>
+                Razina
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-area="" asp-controller="Word" asp-action="Details" asp-route-id="@item.Identification" asp-route-token="@ViewData["token"]">@Html.DisplayFor(modelItem => item.Meaning)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kana)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kanji)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+                <td>
+                    <a href="@item.JishoURL">Vidi na Jisho.org</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
