@@ -30,7 +30,6 @@ namespace NekoUchi.MVC.Model
             foreach(var word in words)
             {
                 var wordView = new WordView();
-                wordView.Identification = word.Identification;
                 wordView.Kana = word.Kana;
                 wordView.Kanji = word.Kanji;
                 wordView.Level = word.Level;
@@ -39,7 +38,24 @@ namespace NekoUchi.MVC.Model
                 wordViews.Add(wordView);
             }
             return wordViews;
-        }        
+        }
+
+        public static List<WordView> CastFromBllWord(List<BLL.Word> words)
+        {
+            var wordViews = new List<WordView>();
+            foreach (var word in words)
+            {
+                var wordView = new WordView();
+                wordView.Identification = word.Identification;
+                wordView.JishoURL = word.ModelWord.JishoURL;
+                wordView.Kana = word.ModelWord.Kana;
+                wordView.Kanji = word.ModelWord.Kanji;
+                wordView.Level = word.ModelWord.Level;
+                wordView.Meaning = word.ModelWord.Meaning;
+                wordViews.Add(wordView);
+            }
+            return wordViews;
+        }
         #endregion
     }
 }

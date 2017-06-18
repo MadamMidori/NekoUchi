@@ -1,6 +1,7 @@
 ﻿// Write your Javascript code.
 
-function Subscribe(el) {
+function Subscribe(el)
+{
     var id = el.id;    
     var url = "/Course/Subscribe?identification=" + id;
     $.ajax({
@@ -11,6 +12,31 @@ function Subscribe(el) {
         },
         error: function () {
             alert("Došlo je do pogreške...");
+        }
+    });
+}
+
+function AddToLesson(el)
+{
+    var id = el.id;
+
+    // Obrada identifikatora
+    var splittedId = id.split("+");
+    var wordId = "wordId=" + splittedId[0];
+    var token = "token=" + splittedId[1];
+    var courseId = "courseId=" + splittedId[2];
+    var lessonName = "lessonName=" + splittedId[3];
+
+    var url = "/Lesson/AddWordToLesson?" + wordId + "&" + token + "&" + courseId + "&" + lessonName;
+
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: function () {
+            alert("Riječ dodana u lekciju.");
+        },
+        error: function () {
+            alert("Došlo je do pogreške.");
         }
     });
 }

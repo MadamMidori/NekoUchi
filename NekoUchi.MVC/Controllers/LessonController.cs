@@ -33,6 +33,10 @@ namespace NekoUchi.MVC.Controllers
             {
                 ViewData["isAuthor"] = true;
             }
+            else
+            {
+                ViewData["isAuthor"] = false;
+            }
 
             var lessonView = new LessonView();
             foreach(var courseLesson in course.ModelCourse.Lessons)
@@ -42,6 +46,10 @@ namespace NekoUchi.MVC.Controllers
                     lessonView = LessonView.CastFromLesson(courseLesson, courseId);
                     break;
                 }
+            }
+            if (lessonView.Words == null)
+            {
+                lessonView.Words = new List<WordView>();
             }
             return View(lessonView);
         }
@@ -146,6 +154,76 @@ namespace NekoUchi.MVC.Controllers
             catch
             {
                 return View();
+            }
+        }
+
+        public ActionResult WordsForLesson(string courseId, string lessonName, string token, string filter = "", bool sByMeaning = true, bool ascending = true)
+        {            
+            if (AuthLogic.CheckToken(token) == "")
+            {
+                throw new Exception("NotAuthorized");
+            }
+            ViewData["token"] = token;
+            ViewData["courseId"] = courseId;
+            ViewData["lessonName"] = lessonName;
+
+            // Za prvu ruku sve ide iz baze, poslije æu uzimati samo one koji odgovaraju
+            // zadanom filtru
+            var allWords = Word.GetAllWords();
+
+            // filter          
+            ViewData["filter"] = filter;
+            if (filter != null && filter != "")
+            {
+                allWords = allWords.Where(w => w.ModelWord.Meaning.ToLower().Contains(filter.ToLower())
+                                                                    || w.ModelWord.Kana.ToLower().Contains(filter.ToLower())
+                                                                    || w.ModelWord.Kanji.ToLower().Contains(filter.ToLower())
+                                                                    || w.ModelWord.Level.ToLower().Contains(filter.ToLower())).ToList();
+            }
+
+            // sort
+            ViewData["ascending"] = ascending;
+            if (sByMeaning)
+            {
+                if (ascending)
+                {
+                    allWords = allWords.OrderBy(w => w.ModelWord.Meaning).ToList();
+                }
+                else
+                {
+                    allWords = allWords.OrderByDescending(w => w.ModelWord.Meaning).ToList();
+                }
+            }
+            else
+            {
+                if (ascending)
+                {
+                    allWords = allWords.OrderBy(w => w.ModelWord.Level).ToList();
+                }
+                else
+                {
+                    allWords = allWords.OrderByDescending(w => w.ModelWord.Level).ToList();
+                }
+            }
+
+            // paging
+
+            var words = new List<WordView>();
+            words = WordView.CastFromBllWord(allWords);
+            return View(words);
+        }
+
+        public void AddWordToLesson(string wordId, string token, string courseId, string lessonName)
+        {
+            if (AuthLogic.CheckToken(token) == "")
+            {
+                throw new Exception("NotAuthorized");
+            }
+
+            Word word = Word.GetWord(wordId);
+            if(!Lesson.AddWordToLesson(courseId, lessonName, word.ModelWord))
+            {
+                throw new Exception("Something went wrong...");
             }
         }
     }

@@ -9,26 +9,41 @@ namespace NekoUchi.BLL
     {
         #region Properties
 
-        public Model.Word ModelWord { get; set; }
+        public Model.Word ModelWord { get; set; }        
 
-        public List<Model.Word> ModelWords { get; set; }
-
+        public string Identification { get; set; }
         #endregion
 
         #region Static Methods
-        public static Word GetAllWords()
+        public static List<Word> GetAllWords()
+        {
+            try
+            {
+                IDataProvider data = new MongoDataProvider();
+                var enumerableWords = data.GetMultiple<DAL.Word>("", "");
+                var words = new List<Word>();
+                foreach (var enumerableWord in enumerableWords)
+                {
+                    var word = new Word();
+                    word.Identification = enumerableWord._id.ToString();
+                    word.ModelWord = enumerableWord;
+                    words.Add(word);
+                }
+                return words;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public static Word GetWord(string wordId)
         {
             try
             {
                 IDataProvider data = new MongoDataProvider();
                 var word = new Word();
-                var enumerableWords = data.GetMultiple<DAL.Word>("", "");
-                word.ModelWords = new List<Model.Word>();
-                foreach (var enumerableWord in enumerableWords)
-                {
-                    enumerableWord.Identification = enumerableWord._id.ToString();
-                    word.ModelWords.Add(enumerableWord);
-                }
+                word.ModelWord = data.Get<DAL.Word>("_id", wordId);
                 return word;
             }
             catch (Exception)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NekoUchi.DAL;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,7 +12,17 @@ namespace NekoUchi.BLL
         #endregion
 
         #region Static methods
-
+        public static bool AddWordToLesson (string courseId, string lessonName, Model.Word word)
+        {
+            try
+            {
+                return DAL.Lesson.AddWordToLesson(word, courseId, lessonName);
+            }
+            catch (Exception)
+            {
+                return false;
+            }            
+        }
         #endregion
     }
 }

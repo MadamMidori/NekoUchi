@@ -29,17 +29,11 @@
         {
             <tr>
                 <td>
-                    <a asp-area="" asp-controller="Lesson" asp-action="Details" asp-route-courseId="@item.CourseIdentification" asp-route-token="@ViewData["token"]" asp-route-name="@item.Name">@Html.DisplayFor(modelItem => item.Name)</a>
+                    <a asp-area="" asp-controller="Lesson" asp-action="Details" asp-route-token="@ViewData["token"]" asp-route-courseId="@ViewData["courseId"]"  asp-route-lessonName="@item.Name">@Html.DisplayFor(modelItem => item.Name)</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                @if (ViewData["isAuthor"].Equals(true))
-                {
-                    <td>
-                        <a asp-area="" asp-controller="Lesson" asp-action="Edit" asp-route-courseId="@item.CourseIdentification" asp-route-token="@ViewData["token"]" asp-route-name="@item.Name">Uredi</a>
-                    </td>
-                }                
+                </td>              
             </tr>
         }
     </table>

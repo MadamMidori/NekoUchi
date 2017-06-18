@@ -50,7 +50,7 @@ namespace NekoUchi.MVC.Model
         #endregion
 
         #region Static methods
-        public static List<GridLessonView> CastFromLessonModel(List<Lesson> lessons)
+        public static List<GridLessonView> CastFromLessonModel(List<Lesson> lessons, string courseId)
         {
             var lessonViews = new List<GridLessonView>();
 
@@ -59,6 +59,7 @@ namespace NekoUchi.MVC.Model
                 var lessonView = new GridLessonView();
                 lessonView.Description = lesson.Description;
                 lessonView.Name = lesson.Name;
+                lessonView.CourseIdentification = courseId;
                 lessonViews.Add(lessonView);
             }
 

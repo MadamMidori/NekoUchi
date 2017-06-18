@@ -37,7 +37,7 @@ namespace NekoUchi.MVC.Model
             courseView.Description = course.Description;
             courseView.Identification = course.Identification;
 
-            courseView.Lessons = GridLessonView.CastFromLessonModel(course.Lessons);
+            courseView.Lessons = GridLessonView.CastFromLessonModel(course.Lessons, course.Identification);
             courseView.Subscribed = SubscribersView.CastFromSubscribers(course.Subscribed);
             courseView.Statistics = CourseStatisticsView.CastStats(course.Statistics);
 

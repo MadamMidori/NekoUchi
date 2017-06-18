@@ -27,10 +27,10 @@ namespace NekoUchi.MVC.Controllers
             ViewData["filter"] = filter;
             if (filter != null && filter != "")
             {
-                allWords.ModelWords = allWords.ModelWords.Where(w => w.Meaning.ToLower().Contains(filter.ToLower())
-                                                                    || w.Kana.ToLower().Contains(filter.ToLower())
-                                                                    || w.Kanji.ToLower().Contains(filter.ToLower())
-                                                                    || w.Level.ToLower().Contains(filter.ToLower())).ToList();                
+                allWords = allWords.Where(w => w.ModelWord.Meaning.ToLower().Contains(filter.ToLower())
+                                                                    || w.ModelWord.Kana.ToLower().Contains(filter.ToLower())
+                                                                    || w.ModelWord.Kanji.ToLower().Contains(filter.ToLower())
+                                                                    || w.ModelWord.Level.ToLower().Contains(filter.ToLower())).ToList();                
             }
 
             // sort
@@ -39,29 +39,29 @@ namespace NekoUchi.MVC.Controllers
             {
                 if (ascending)
                 {
-                    allWords.ModelWords = allWords.ModelWords.OrderBy(w => w.Meaning).ToList();                    
+                    allWords = allWords.OrderBy(w => w.ModelWord.Meaning).ToList();                    
                 }
                 else
                 {
-                    allWords.ModelWords = allWords.ModelWords.OrderByDescending(w => w.Meaning).ToList();                    
+                    allWords = allWords.OrderByDescending(w => w.ModelWord.Meaning).ToList();                    
                 }
             }
             else
             {
                 if (ascending)
                 {
-                    allWords.ModelWords = allWords.ModelWords.OrderBy(w => w.Level).ToList();
+                    allWords = allWords.OrderBy(w => w.ModelWord.Level).ToList();
                 }
                 else
                 {
-                    allWords.ModelWords = allWords.ModelWords.OrderByDescending(w => w.Level).ToList();
+                    allWords = allWords.OrderByDescending(w => w.ModelWord.Level).ToList();
                 }
             }
 
             // paging
 
             var words = new List<WordView>();
-            words = WordView.CastFromModelWord(allWords.ModelWords);            
+            words = WordView.CastFromBllWord(allWords);            
             return View(words);
         }
 

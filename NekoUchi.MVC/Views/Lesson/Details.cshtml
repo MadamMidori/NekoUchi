@@ -1,6 +1,8 @@
 ﻿@model NekoUchi.MVC.Model.LessonView
 @{
     ViewData["Title"] = "Lekcija";
+    ViewData["lessonName"] = Model.Name;
+    ViewData["courseId"] = Model.CourseIdentification;
 }
 
 <h2>Lekcija</h2>

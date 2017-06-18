@@ -1,0 +1,77 @@
+﻿@model IEnumerable<NekoUchi.MVC.Model.WordView>
+
+@{
+    ViewData["Title"] = "Dodaj u lekciju";
+    if (ViewData["ascending"].Equals(true))
+    {
+        ViewData["ascending"] = false;
+    }
+    else
+    {
+        ViewData["ascending"] = true;
+    }
+}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="~/js/site.js" type="text/javascript"></script>
+
+<h2>Riječi</h2>
+
+<div>
+    <form asp-action="WordsForLesson">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="hidden" name="token" value="@ViewData["token"]" />
+                    <input type="hidden" name="courseId" value="@ViewData["courseId"]" />
+                    <input type="hidden" name="lessonName" value="@ViewData["lessonName"]" />
+                    <span>
+                        <input type="text" name="filter" class="form-control col-md-5" placeholder="Pretraga..." />
+                        <input type="submit" value="Pretraži" class="btn btn-default" />
+                    </span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                <a asp-area="" asp-controller="Word" asp-action="Index" asp-route-token="@ViewData["token"]" asp-route-sByMeaning="true" asp-route-ascending="@ViewData["ascending"]" asp-route-filter="@ViewData["filter"]">Značenje</a>
+            </th>
+            <th>
+                Kana
+            </th>
+            <th>
+                Kanji
+            </th>
+            <th>
+                <a asp-area="" asp-controller="Word" asp-action="Index" asp-route-token="@ViewData["token"]" asp-route-sByMeaning="false" asp-route-ascending="@ViewData["ascending"]" asp-route-filter="@ViewData["filter"]">Razina</a>
+            </th>            
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Meaning)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kana)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kanji)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+                <td>
+                    <a id="@item.Identification+@ViewData["token"]+@ViewData["courseId"]+@ViewData["lessonName"]" onclick="AddToLesson(this)">Dodaj riječ u lekciju</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

@@ -7,6 +7,13 @@
 
 <h2>Riječi</h2>
 
+@if (ViewData["isAuthor"].Equals(true))
+{
+    <div>
+        <a asp-area="" asp-controller="Lesson" asp-action="WordsForLesson" asp-route-courseId="@ViewData["courseId"]" asp-route-lessonName="@ViewData["lessonName"]" asp-route-token="@ViewData["token"]">Dodaj riječi u lekciju</a>
+    </div>
+}
+
 <div>
     <table class="table">
         <tr>
