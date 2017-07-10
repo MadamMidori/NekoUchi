@@ -1,3 +1,18 @@
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\bin\Debug\netcoreapp1.1\NekoUchi.MVC.deps.json
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\bin\Debug\netcoreapp1.1\NekoUchi.MVC.runtimeconfig.json
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\bin\Debug\netcoreapp1.1\NekoUchi.MVC.runtimeconfig.dev.json
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\bin\Debug\netcoreapp1.1\NekoUchi.MVC.dll
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\bin\Debug\netcoreapp1.1\NekoUchi.MVC.pdb
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\bin\Debug\netcoreapp1.1\NekoUchi.BLL.dll
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\bin\Debug\netcoreapp1.1\NekoUchi.DAL.dll
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\bin\Debug\netcoreapp1.1\NekoUchi.Model.dll
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\bin\Debug\netcoreapp1.1\NekoUchi.BLL.pdb
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\bin\Debug\netcoreapp1.1\NekoUchi.DAL.pdb
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\bin\Debug\netcoreapp1.1\NekoUchi.Model.pdb
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\obj\Debug\netcoreapp1.1\NekoUchi.MVC.csprojResolveAssemblyReference.cache
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\obj\Debug\netcoreapp1.1\NekoUchi.MVC.AssemblyInfo.cs
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\obj\Debug\netcoreapp1.1\NekoUchi.MVC.dll
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.MVC\obj\Debug\netcoreapp1.1\NekoUchi.MVC.pdb
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.MVC\bin\Debug\netcoreapp1.1\NekoUchi.MVC.deps.json
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.MVC\bin\Debug\netcoreapp1.1\NekoUchi.MVC.runtimeconfig.json
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.MVC\bin\Debug\netcoreapp1.1\NekoUchi.MVC.runtimeconfig.dev.json

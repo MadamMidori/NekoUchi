@@ -8,6 +8,7 @@ namespace NekoUchi.Model
     {
         public string Name { get; set; }
         public string Type { get; set; }
+        public string LessonComponent { get; set; }
         public string QuestionField { get; set; }
         public string AnswerField { get; set; }
     }

@@ -20,6 +20,8 @@ namespace NekoUchi.MVC.Model
 
         public List<WordView> Words { get; set; }
 
+        public List<QuizView> Quiz { get; set; }
+
         #endregion
 
         #region StaticMethods

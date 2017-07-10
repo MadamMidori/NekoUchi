@@ -51,6 +51,12 @@ namespace NekoUchi.MVC.Controllers
             {
                 lessonView.Words = new List<WordView>();
             }
+
+            // For now there are only generic tests; later there might be lesson-specific tests,
+            // so those will be included here as well...)
+            var bllQuizzes = Quiz.GetAllGenericQuizzes();
+            lessonView.Quiz = QuizView.CastFromBllQuiz(bllQuizzes);
+
             return View(lessonView);
         }
 

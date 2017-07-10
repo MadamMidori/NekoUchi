@@ -13,12 +13,16 @@ namespace NekoUchi.MVC.Controllers
     {      
         // GET: Profile
         public ActionResult Index(string token)
-        {            
+        {           
+            if (token == null)
+            {
+                return View("NotAuthorized");
+            }
             var profile = new ProfileView();
 
             // Validate token and get user from DB
             var user = BLL.User.Get(AuthLogic.CheckToken(token));
-            ViewData["token"] = token;
+            ViewData["token"] = token;           
 
             // Get users courses and stats from DB
             // owned courses

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<NekoUchi.MVC.Model.QuizView>
+@{
+    ViewData["Title"] = "Kvizovi";
+}
+
+<h2>Kvizovi</h2>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                Naziv
+            </th>
+            <th>
+                Tip
+            </th>
+            <th>
+                Pitanje
+            </th>
+            <th>
+                Odgovor
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuestionField)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnswerField)
+                </td>
+                <td>
+                    <a asp-area="" asp-controller="Quiz" asp-action="PrepareQuiz" 
+                            asp-route-token="@ViewData["token"]" 
+                            asp-route-courseId="@ViewData["courseId"]"
+                            asp-route-lessonName="@ViewData["lessonName"]"
+                            asp-route-quizId="@item.Identification">
+                       Riješi kviz</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

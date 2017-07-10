@@ -1,3 +1,12 @@
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.DAL\bin\Debug\netcoreapp1.1\NekoUchi.DAL.deps.json
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.DAL\bin\Debug\netcoreapp1.1\NekoUchi.DAL.dll
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.DAL\bin\Debug\netcoreapp1.1\NekoUchi.DAL.pdb
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.DAL\bin\Debug\netcoreapp1.1\NekoUchi.Model.dll
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.DAL\bin\Debug\netcoreapp1.1\NekoUchi.Model.pdb
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.DAL\obj\Debug\netcoreapp1.1\NekoUchi.DAL.csprojResolveAssemblyReference.cache
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.DAL\obj\Debug\netcoreapp1.1\NekoUchi.DAL.AssemblyInfo.cs
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.DAL\obj\Debug\netcoreapp1.1\NekoUchi.DAL.dll
+C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\NekoUchi.DAL\obj\Debug\netcoreapp1.1\NekoUchi.DAL.pdb
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.DAL\bin\Debug\netcoreapp1.1\NekoUchi.DAL.deps.json
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.DAL\bin\Debug\netcoreapp1.1\NekoUchi.DAL.dll
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.DAL\bin\Debug\netcoreapp1.1\NekoUchi.DAL.pdb

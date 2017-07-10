@@ -17,6 +17,14 @@ namespace NekoUchi.BLL
             var user = new User();
             try
             {
+                // First check if user exists
+                IDataProvider data = new MongoDataProvider();
+                var exUser = data.Get<DAL.User>("Email", Email);
+                if (exUser != null)
+                {
+                    throw new Exception("User exists");
+                }
+
                 // Generate password hash first
                 string salt = Randoms.GenerateSalt(8);
                 string hash = Hasher.GetHash(Password, salt);
@@ -25,8 +33,7 @@ namespace NekoUchi.BLL
                 user.ModelUser.Password = hash;
                 user.ModelUser.Basil = salt;
                 user.ModelUser.RegistrationDate = DateTime.Now;
-                user.ModelUser.Role = Constants.Roles.User;
-                IDataProvider data = new MongoDataProvider();
+                user.ModelUser.Role = Constants.Roles.User;                
                 if (data.Create(user.ModelUser) == null)
                 {
                     throw new Exception();
@@ -34,6 +41,10 @@ namespace NekoUchi.BLL
             }
             catch (Exception e)
             {
+                if (e.Message == "User exists")
+                {
+                    return e.Message;
+                }
                 throw e;
             }
 

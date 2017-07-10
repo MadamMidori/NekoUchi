@@ -123,6 +123,20 @@ namespace NekoUchi.DAL
             }
         }
 
+        public List<T> CreateMany<T>(List<T> items)
+        {
+            try
+            {
+                var collection = _db.GetCollection<T>(typeof(T).Name);
+                collection.InsertMany(items);
+                return items;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public bool Update<T>(Dictionary<string, string> changes, string field, string value)
         {
             try

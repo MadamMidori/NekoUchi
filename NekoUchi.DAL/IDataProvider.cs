@@ -15,6 +15,8 @@ namespace NekoUchi.DAL
 
         T Create<T>(T item);
 
+        List<T> CreateMany<T>(List<T> items);
+
         bool Update<T>(Dictionary<string, string> changes, string field, string value);
 
         bool Delete<T>(string field, string value);

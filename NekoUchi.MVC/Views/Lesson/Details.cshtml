@@ -29,12 +29,15 @@
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#words">Riječi</a></li>
         <li><a data-toggle="tab" href="#sentences">Rečenice</a></li>
-        <li><a data-toggle="tab" href="#tests">Testovi</a></li>
+        <li><a data-toggle="tab" href="#quiz">Kvizovi</a></li>
     </ul>
 
     <div class="tab-content">
         <div id="words" class="tab-pane active">
             @Html.Partial("Words", Model.Words)
+        </div>
+        <div id="quiz" class="tab-pane">
+            @Html.Partial("QuizGrid", Model.Quiz)
         </div>
     </div>
 </div>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NekoUchi.DAL", "NekoUchi.DAL\NekoUchi.DAL.csproj", "{5253469B-DA00-4890-9728-7C4039A78787}"
 EndProject
@@ -12,6 +12,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NekoUchi.MVC", "NekoUchi.MVC\NekoUchi.MVC.csproj", "{24AA0AA0-031B-40D8-B104-66F31A973E22}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NekoUchi.Model", "NekoUchi.Model\NekoUchi.Model.csproj", "{AE0E6055-52CF-4643-8B20-B20D8A7220C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2563D2BA-A5BA-464B-A940-BF27DB912002}"
+	ProjectSection(SolutionItems) = preProject
+		Arh.dgml = Arh.dgml
+		MVCDiag.dgml = MVCDiag.dgml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

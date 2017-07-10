@@ -66,8 +66,12 @@ namespace NekoUchi.MVC.Controllers
         }
 
         // GET: Word/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string identification, string token = "")
         {
+            if (token != "")
+            {
+                ViewData["token"] = token;
+            }            
             return View();
         }
 
