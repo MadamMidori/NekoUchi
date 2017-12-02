@@ -35,10 +35,6 @@ namespace NekoUchi.MVC.Controllers
                     auth.Email = email.ToString();
                     auth.Password = pass.ToString();
                     string token = auth.Register();
-                    if (token == "User exists")
-                    {
-                        return View("UserExists");
-                    }
                     return RedirectToAction("Index", "Profile", new { token = token });
                 }
                 catch (Exception)

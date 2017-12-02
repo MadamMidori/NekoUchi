@@ -8,6 +8,16 @@ C:\Users\iadrijevic\AppData\Local\Microsoft\Windows\Burn\Burn\Source\NekoUchi2\N
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\bin\Debug\netcoreapp1.1\NekoUchi.Model.deps.json
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\bin\Debug\netcoreapp1.1\NekoUchi.Model.dll
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\bin\Debug\netcoreapp1.1\NekoUchi.Model.pdb
+C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.csprojResolveAssemblyReference.cache
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.AssemblyInfo.cs
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.dll
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.pdb
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\bin\Debug\netcoreapp1.1\NekoUchi.Model.deps.json
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\bin\Debug\netcoreapp1.1\NekoUchi.Model.dll
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\bin\Debug\netcoreapp1.1\NekoUchi.Model.pdb
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.csprojResolveAssemblyReference.cache
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.csproj.CoreCompileInputs.cache
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.AssemblyInfoInputs.cache
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.AssemblyInfo.cs
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.dll
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.Model\obj\Debug\netcoreapp1.1\NekoUchi.Model.pdb

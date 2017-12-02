@@ -31,7 +31,7 @@
                             <li><a asp-area="" asp-controller="Profile" asp-action="Index" asp-route-token="@ViewData["token"]">Profil</a></li>
                         }
                     }                    
-                    <li><a asp-area="" asp-controller="Word" asp-action="Index" asp-route-token="@ViewData["token"]">Riječi</a></li>
+                    <li><a asp-area="" asp-controller="Word" asp-action="Index">Riječi</a></li>
                     @{
                         if (ViewData.Keys.Contains("token"))
                         {

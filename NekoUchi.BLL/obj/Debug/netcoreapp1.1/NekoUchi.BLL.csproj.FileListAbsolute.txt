@@ -20,3 +20,16 @@ C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\obj\Debug\netcoreapp1.1\
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\obj\Debug\netcoreapp1.1\NekoUchi.BLL.AssemblyInfo.cs
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\obj\Debug\netcoreapp1.1\NekoUchi.BLL.dll
 C:\Privatno\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\obj\Debug\netcoreapp1.1\NekoUchi.BLL.pdb
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\bin\Debug\netcoreapp1.1\NekoUchi.BLL.deps.json
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\bin\Debug\netcoreapp1.1\NekoUchi.BLL.dll
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\bin\Debug\netcoreapp1.1\NekoUchi.BLL.pdb
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\bin\Debug\netcoreapp1.1\NekoUchi.DAL.dll
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\bin\Debug\netcoreapp1.1\NekoUchi.Model.dll
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\bin\Debug\netcoreapp1.1\NekoUchi.DAL.pdb
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\bin\Debug\netcoreapp1.1\NekoUchi.Model.pdb
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\obj\Debug\netcoreapp1.1\NekoUchi.BLL.csprojResolveAssemblyReference.cache
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\obj\Debug\netcoreapp1.1\NekoUchi.BLL.csproj.CoreCompileInputs.cache
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\obj\Debug\netcoreapp1.1\NekoUchi.BLL.AssemblyInfoInputs.cache
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\obj\Debug\netcoreapp1.1\NekoUchi.BLL.AssemblyInfo.cs
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\obj\Debug\netcoreapp1.1\NekoUchi.BLL.dll
+D:\Diplomski rad\Source\NekoUchi2\NekoUchi.BLL\obj\Debug\netcoreapp1.1\NekoUchi.BLL.pdb

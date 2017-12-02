@@ -11,7 +11,7 @@ namespace NekoUchi.DAL
     {
         private IMongoDatabase _db;
 
-        public MongoDataProvider(bool isLocal = false)
+        public MongoDataProvider(bool isLocal = true)
         {
             if (isLocal)
             {

@@ -57,30 +57,42 @@ textarea {
     color: darkred;
 }
 
-.btn-default 
-{
+/* Button classes override */
+.btn-default {
     color: #2c000f;
     background-color: #Fdd0fc;
     border-color: #Fdd0fc;
+    box-shadow: none;
 }
 
-    .btn-default:hover 
-    {
+    .btn-default:hover {
         background-color: #Ff68fb;
         border-color: #Ff68fb;
+        box-shadow: none;
     }
 
-a 
-{
+a {
     color: #Ff68fb;
     text-decoration: none;
+    box-shadow: none;
 }
 
-    a:hover 
-    {
+    a:hover {
         color: #bc47b9;
+        box-shadow: none;
     }
 
+/* This should get rid of default button color onclick */
+.btn-default:active:focus {
+    color: #2c000f;
+    background-color: #Fdd0fc;
+    border-color: #Fdd0fc;
+    box-shadow: none;
+}
+
+.btn-sample:active {
+    box-shadow: none;
+}
 
 .nav-tabs > li > a {
     margin-right: 2px;
@@ -120,4 +132,10 @@ a
     background-color: #Fdd0fc;
     border: 1px solid #Fdd0fc;
     border-bottom-color: transparent;
+}
+
+/* This makes a pinkish glow on clicking an input text element */
+.form-control:focus {
+    border-color: #bc47b9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(253, 0, 0, 0.6);
 }
